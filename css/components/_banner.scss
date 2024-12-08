@@ -1,0 +1,119 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/breakpoints" as breakpoint;
+@use "../abstracts/animations" as anim;
+@use "sass:math";
+
+.banner {
+  //banner layout
+  @extend %container-big;
+  position: relative;
+  min-height: calc(100vh - 69.6px);
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: "";
+    background-image: url("../images/banner-dec-right.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    @include breakpoint.tablet {
+      display: none;
+    }
+  }
+
+  &::after {
+    content: "";
+    background-image: url("../images/banner-dec-left.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .wrapper {
+    @include mix.flex(row, center, center, var.$gutter-big);
+    @include mix.wrap(80%);
+
+    @include breakpoint.tablet {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  //content box design
+  .content-box {
+    flex-basis: 50%;
+    z-index: 5;
+
+    @include breakpoint.tablet {
+      text-align: center;
+    }
+
+    .content-box-top {
+      @include mix.flex(row, space-between, center);
+      margin-bottom: var.$gutter-medium;
+
+      @include breakpoint.mobile-l {
+        flex-direction: column;
+      }
+    }
+
+    .description-tag {
+      color: var.$text-color-quaternary;
+      margin-bottom: 0;
+    }
+
+    .status-tag {
+      color: var.$text-color-primary;
+      font-weight: var.$font-weight-bold;
+      margin-bottom: 0;
+    }
+
+    .line-divider {
+      border-bottom: 1px solid var.$background-color-primary;
+      margin-bottom: var.$gutter-medium;
+    }
+
+    .btn {
+      @include mix.button(
+        var.$background-color-secondary,
+        var.$background-color-tertiary
+      );
+
+      &:hover {
+        @include mix.button(
+          var.$background-color-tertiary,
+          var.$background-color-secondary
+        );
+      }
+    }
+  }
+
+  //image box design
+  .image-box {
+    flex-basis: 50%;
+    text-align: center;
+    z-index: 5;
+
+    img {
+      width: 90%;
+
+      @include breakpoint.tablet {
+        display: none;
+      }
+    }
+  }
+}

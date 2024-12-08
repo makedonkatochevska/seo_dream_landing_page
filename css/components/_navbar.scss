@@ -1,0 +1,75 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/breakpoints" as breakpoint;
+@use "../abstracts/animations" as anim;
+@use "sass:math";
+
+nav {
+  @include anim.slide-in-top;
+  @extend %container-small;
+  background-color: var.$background-color-secondary;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+
+  .wrapper {
+    @include mix.wrap(80%);
+    @include mix.flex(row, space-between, center);
+  }
+
+  .logo {
+    color: var.$text-color-base;
+    font-size: var.$heading-size-tiny;
+    font-weight: var.$font-weight-boldest;
+  }
+
+  //menu layout and design
+  .menu-container {
+    @include mix.flex(row, space-between, center, var.$gutter-big);
+
+    ul {
+      @include mix.flex(row, flex-start, stretch, var.$gutter-medium);
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 0;
+      color: var.$text-color-base;
+    }
+
+    .btn {
+      @include mix.button(
+        var.$background-color-tertiary,
+        var.$background-color-base,
+        var.$gutter-tiny var.$gutter-medium
+      );
+
+      &:hover {
+        @include mix.button-hover(
+          var.$background-color-base,
+          var.$background-color-tertiary,
+          var.$text-color-tertiary
+        );
+      }
+
+      @include breakpoint.laptop-m {
+        display: none;
+      }
+    }
+
+    @include breakpoint.tablet {
+      display: none;
+    }
+  }
+
+  //hamburger icon design
+  .hamburger-icon {
+    display: none;
+
+    @include breakpoint.tablet {
+      display: block;
+      color: var.$text-color-base;
+      font-size: var.$font-size-large;
+    }
+  }
+}

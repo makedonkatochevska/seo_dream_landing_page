@@ -1,0 +1,97 @@
+@use "sass:math";
+
+@function rem-calc($size) {
+  @return (math.div($size, 16)) * 1rem;
+}
+
+//Font settings
+$font-family-base: "Montserrat", sans-serif;
+
+$font-size-small: rem-calc(14);
+$font-size-base: rem-calc(16);
+$font-size-medium: rem-calc(18);
+$font-size-large: rem-calc(20);
+$font-size-largest: rem-calc(30);
+
+$heading-size-base: rem-calc(20);
+$heading-size-tiny: rem-calc(24);
+$heading-size-small: rem-calc(30);
+$heading-size-big: rem-calc(45);
+$heading-size-bigger: rem-calc(50);
+$heading-size-enormous: rem-calc(60);
+
+$line-height-base: 1.5;
+$line-height-small: 1.25;
+
+$font-weight-normal: 400;
+$font-weight-bold: 600;
+$font-weight-boldest: 900;
+
+// Size settings
+$gutter-base: rem-calc(30);
+$gutter-tiny: math.div($gutter-base, 6);
+$gutter-small: math.div($gutter-base, 3);
+$gutter-medium: math.div($gutter-base, 2);
+$gutter-big: $gutter-base * 2;
+$gutter-bigger: $gutter-base * 2.5;
+
+// Border radius
+$border-radius-small: rem-calc(5);
+$border-radius-medium: rem-calc(20);
+$border-radius-big: rem-calc(50);
+$border-radius-circle: 50%;
+
+// Color settings
+$text-color-base: #ffffff;
+$text-color-primary: #000;
+$text-color-secondary: #33ccc5;
+$text-color-tertiary: #088ec3;
+$text-color-quaternary: #c4c6c5;
+$text-color-primary-hover: lighten(#111, 10%);
+
+$background-color-base: #fff;
+$background-color-primary: #f5f5f5;
+$background-color-secondary: #33ccc5;
+$background-color-tertiary: #4771cb;
+$background-color-quaternary: #f66e52;
+
+$linear-gradient-base: linear-gradient(
+  90deg,
+  rgba(250, 154, 78, 1) 15%,
+  rgba(252, 136, 86, 1) 51%,
+  rgba(253, 117, 93, 1) 67%,
+  rgba(255, 84, 105, 1) 92%
+);
+$linear-gradient-primary: linear-gradient(
+  90deg,
+  rgba(50, 202, 197, 1) 15%,
+  rgba(36, 180, 195, 1) 51%,
+  rgba(25, 162, 192, 1) 67%,
+  rgba(11, 146, 194, 1) 92%
+);
+$linear-gradient-secondary: linear-gradient(
+  90deg,
+  rgba(57, 39, 214, 1) 15%,
+  rgba(65, 76, 230, 1) 51%,
+  rgba(73, 112, 241, 1) 67%,
+  rgba(79, 139, 251, 1) 92%
+);
+$linear-gradient-tertiary: linear-gradient(
+  90deg,
+  rgba(247, 78, 171, 1) 15%,
+  rgba(214, 80, 195, 1) 51%,
+  rgba(181, 79, 223, 1) 67%,
+  rgba(150, 81, 250, 1) 92%
+);
+
+// Box-shadow
+$box-shadow-base: 0px 0px 20px rgba(0, 0, 0, 0.2);
+
+// Breakpoints
+$four-k: 2560px;
+$laptop-l: 1440px;
+$laptop-m: 1024px;
+$tablet: 780px;
+$mobile-l: 425px;
+$mobile-m: 375px;
+$mobile-s: 320px;

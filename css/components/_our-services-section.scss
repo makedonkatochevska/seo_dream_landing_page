@@ -1,0 +1,107 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/breakpoints" as breakpoint;
+@use "../abstracts/animations" as anim;
+@use "sass:math";
+
+.our-services-section {
+  @extend %container-big;
+
+  .wrapper {
+    @include mix.wrap(80%);
+  }
+
+  .title-box {
+    @include anim.appear;
+    text-align: center;
+  }
+
+  .cards-container {
+    @include mix.flex(row, center, stretch, var.$gutter-medium, wrap);
+
+    @include breakpoint.mobile-l {
+      flex-direction: column;
+    }
+
+    //cards layout
+    .card {
+      @include anim.pop-up;
+      @include mix.flex(row, center, stretch, var.$gutter-base);
+      flex-basis: calc(33.333% - var.$gutter-medium);
+      flex-grow: 1;
+      border: 2px solid var.$background-color-primary;
+      border-radius: var.$border-radius-small;
+      padding: var.$gutter-big var.$gutter-base;
+      transition: box-shadow 0.3s ease-in;
+
+      &:hover {
+        box-shadow: var.$box-shadow-base;
+      }
+
+      @include breakpoint.tablet {
+        flex-basis: calc(50% - var.$gutter-medium);
+        flex-direction: column;
+      }
+
+      @include breakpoint.mobile-l {
+        text-align: center;
+      }
+    }
+
+    //icon box designs
+    .icon-box {
+      flex-basis: 20%;
+
+      @include breakpoint.mobile-l {
+        @include mix.flex(row, center, center);
+      }
+
+      .icon-container {
+        @include mix.flex(row, center, center);
+        background-color: var.$background-color-primary;
+        width: 70px;
+        height: 70px;
+        border-radius: var.$border-radius-circle;
+      }
+
+      i {
+        font-size: var.$font-size-largest;
+      }
+
+      i.fa-laptop-code {
+        background: var.$linear-gradient-base;
+        color: transparent;
+        background-clip: text;
+      }
+
+      i.fa-searchengin {
+        background: var.$linear-gradient-primary;
+        color: transparent;
+        background-clip: text;
+      }
+
+      i.fa-icons {
+        background: var.$linear-gradient-secondary;
+        color: transparent;
+        background-clip: text;
+      }
+    }
+
+    //content box designs
+    .content-box {
+      flex-basis: 80%;
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .green-word {
+    @extend %green-word;
+  }
+
+  .blue-word {
+    @extend %blue-word;
+  }
+}

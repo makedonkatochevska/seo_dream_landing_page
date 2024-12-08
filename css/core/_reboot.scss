@@ -1,0 +1,31 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+* {
+  margin-top: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding-top: 69.6px;
+  cursor: default;
+}
+
+img {
+  max-width: 100%;
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

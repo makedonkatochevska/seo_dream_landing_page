@@ -1,0 +1,109 @@
+@use "./variables" as var;
+@use "../abstracts/breakpoints" as breakpoint;
+@use "sass:math";
+
+//container for padding
+%container-big {
+  padding-block: var.$gutter-bigger;
+
+  @include breakpoint.tablet {
+    padding-block: var.$gutter-big;
+  }
+}
+
+%container-small {
+  padding-block: var.$gutter-medium;
+}
+
+//wrapper
+@mixin wrap($wrap-width) {
+  width: $wrap-width;
+  margin-inline: auto;
+}
+
+//background image
+@mixin background-image($background-url) {
+  background-image: $background-url;
+  background-position: center;
+  background-size: cover;
+}
+
+//number tags
+
+@mixin number-tag($background-color) {
+  background: $background-color;
+  position: absolute;
+  width: 90px;
+  height: 70px;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top-left-radius: 82%;
+  border-top-right-radius: 63%;
+  border-bottom-left-radius: 48%;
+  border-bottom-right-radius: 82%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//button
+@mixin button(
+  $background-color,
+  $shadow-color,
+  $button-padding: var.$gutter-small var.$gutter-medium
+) {
+  background-color: $background-color;
+  color: var.$text-color-base;
+  border-radius: var.$border-radius-big;
+  padding: $button-padding;
+  box-shadow: 0px 3px 0 $shadow-color;
+  text-transform: capitalize;
+  font-size: var.$font-size-base;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in, box-shadow 0.3s ease-in;
+}
+
+@mixin button-hover($background-color, $shadow-color, $text-color) {
+  background-color: $background-color;
+  box-shadow: 0px 3px 0 $shadow-color;
+  color: $text-color;
+}
+
+//flex
+@mixin flex(
+  $flex-direction,
+  $justify-content,
+  $align-items,
+  $gap: 0,
+  $wrap: nowrap
+) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  gap: $gap;
+  flex-wrap: $wrap;
+}
+
+//Progress Bar Percentage
+@mixin progress($percentage) {
+  background: conic-gradient(
+    var.$background-color-quaternary 0deg $percentage,
+    darken(var.$background-color-primary, 10%) $percentage 360deg
+  );
+  border-radius: var.$border-radius-circle;
+  width: 180px;
+  height: 180px;
+}
+
+//Green Word
+%green-word {
+  color: var.$text-color-secondary;
+}
+
+//Blue Word
+%blue-word {
+  color: var.$text-color-tertiary;
+}

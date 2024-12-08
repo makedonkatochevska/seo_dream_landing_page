@@ -1,0 +1,103 @@
+@use "./variables" as var;
+@use "sass:math";
+
+@mixin slide-in-top {
+  opacity: 0;
+  transform: translateY(-100%);
+  animation: slide-in-top 0.9s forwards;
+
+  @keyframes slide-in-top {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@mixin slide-in-bottom {
+  transform: translateY(100px);
+  animation: slide-in-bottom 0.9s forwards;
+  animation-timeline: view(800px 0);
+
+  @keyframes slide-in-bottom {
+    0% {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@mixin appear {
+  animation: appear 0.9s forwards;
+  animation-timeline: view(200px 0);
+
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin pop-up {
+  opacity: 0;
+  transform: scale(0);
+  animation: pop-up 0.5s forwards;
+  animation-timeline: view(600px 0);
+
+  @keyframes pop-up {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+/*@mixin slide-in-left($triger-event: auto, $duration: 0.5s) {
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: slide-in-left $duration forwards;
+  animation-timeline: $triger-event;
+
+  @keyframes slide-in-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}*/
+
+/*@mixin slide-in-right($triger-event: auto, $duration: 0.5s) {
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slide-in-right $duration forwards;
+  animation-timeline: $triger-event;
+
+  @keyframes slide-in-right {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}*/

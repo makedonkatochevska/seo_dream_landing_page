@@ -1,0 +1,96 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/breakpoints" as breakpoint;
+@use "../abstracts/animations" as anim;
+@use "sass:math";
+
+.about-us-section {
+  @extend %container-big;
+
+  .wrapper {
+    @include mix.wrap(80%);
+    @include mix.flex(row, center, center, var.$gutter-big);
+
+    @include breakpoint.tablet {
+      flex-direction: column;
+    }
+  }
+
+  //image box design
+  .image-box {
+    @include anim.appear;
+    flex-basis: 40%;
+    text-align: center;
+
+    img {
+      @include breakpoint.tablet {
+        width: 80%;
+      }
+    }
+  }
+
+  //content box design
+  .content-box {
+    @include anim.appear;
+    flex-basis: 60%;
+
+    @include breakpoint.mobile-l {
+      text-align: center;
+    }
+
+    .green-word {
+      @extend %green-word;
+    }
+
+    .blue-word {
+      @extend %blue-word;
+    }
+
+    & > p {
+      margin-bottom: var.$gutter-base;
+    }
+  }
+
+  .information-box {
+    @include mix.flex(row, flex-start, center, var.$gutter-bigger);
+
+    @include breakpoint.tablet {
+      gap: var.$gutter-big;
+    }
+
+    @include breakpoint.mobile-l {
+      flex-direction: column;
+      gap: var.$gutter-medium;
+      margin-bottom: var.$gutter-base;
+    }
+
+    .info-numbers-tag {
+      margin-bottom: 0;
+      color: var.$text-color-tertiary;
+      font-size: var.$heading-size-small;
+      font-weight: var.$font-weight-bold;
+    }
+
+    .description-tag {
+      margin-bottom: var.$gutter-base;
+
+      @include breakpoint.mobile-l {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .btn {
+    @include mix.button(
+      var.$background-color-secondary,
+      var.$background-color-tertiary
+    );
+
+    &:hover {
+      @include mix.button(
+        var.$background-color-tertiary,
+        var.$background-color-secondary
+      );
+    }
+  }
+}
