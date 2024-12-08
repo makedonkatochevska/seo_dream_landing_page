@@ -1,4 +1,4 @@
-# SEO Site Responsive Landing Page
+# SEO Responsive Landing Page
 
 ## Table of Contents
 
@@ -89,9 +89,9 @@ Feel free to explore all the sections, including the interactive elements and th
 
 ## Credits 📝
 
-This landing page template is inspired by the design from **[Template.mo](https://template.mo/)**, which provided the basic structure. The design was customized with additional animations, hover effects, and a responsive layout.
+This landing page template is inspired by the design from **[Templatemo.com](https://templatemo.com/)**, which provided the basic structure. The design was customized with additional animations, hover effects, and a responsive layout.
 
-- **Template Source**: [Templatemo.com](https://templatemo.com/)
+- **Template Source**: [Templatemo.com](https://templatemo.com/tm-563-seo-dream)
 - **Icons**: Icons were sourced from [FontAwesome](https://fontawesome.com/).
 
 ---
